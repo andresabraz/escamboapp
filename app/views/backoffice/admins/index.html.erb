@@ -14,6 +14,7 @@
         <thead>
             <tr>
             <th>#</th>
+            <th><%= @admin.model.human_attribute_name('name') %></th>            
             <th><%= @admin.model.human_attribute_name('description') %></th>
             <th></th>
             </tr>
@@ -22,13 +23,22 @@
             <% @admin.each do |admin| %>
             <tr>
                 <td><%= admin.id %></td>
+                <td><%= admin.name %></td>                
                 <td><%= admin.email %></td>
                 <td style="width: 150px">
-                <%= link_to edit_backoffice_admin_path(admin), class: "btn btn-primary btn-circle" do %>
-                    <i class="fa fa-edit"></i>
-                <% end %>
-                <button type="button" disabled="disabled" class="btn btn-danger btn-circle"><i class="fa fa-minus"></i>
-                </button>
+                    <%= link_to edit_backoffice_admin_path(admin), class: "btn btn-primary btn-circle" do %>
+                        <i class="fa fa-edit"></i>
+                    <% end %>
+                    <% if current_admin.id != admin.id %>
+                        <%= link_to backoffice_admin_path(admin), method: :delete, class: "btn btn-danger btn-circle", 
+                        data: {confirm: "Deseja excluir o administrador <b>#{admin.email}</b>?"}  do %>
+                            <i class="fa fa-minus"></i>
+                        <% end %>
+                    <% else %>
+                        <%= link_to '#', class: "btn btn-danger btn-circle", disabled: "disabled" do %>
+                            <i class="fa fa-minus"></i>
+                        <% end %>                    
+                    <% end %>
                 </td>
             </tr>
             <% end %>

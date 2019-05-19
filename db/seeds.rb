@@ -31,7 +31,8 @@ puts "Categories Seeds... [OK]"
 # Admin padrão
 puts "Admin Seeds..."
 
-Admin.create!(email: "admin@escamboapp.com",
+Admin.create!(name: "Administrador",
+              email: "admin@escamboapp.com",
               password: "123456",
               password_confirmation: "123456")  
 

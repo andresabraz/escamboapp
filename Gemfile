@@ -42,10 +42,13 @@ gem 'devise'
 gem 'devise-i18n'
 # Rails gem of the Bootstrap based admin theme SB Admin 2.
 gem 'bootstrap_sb_admin_base_v2'
-# Bootstrap
-gem 'rails-assets-bootstrap', '3.3.7', source: 'https://rails-assets.org'
 
-gem 'rails-assets-notifyjs', source: 'https://rails-assets.org'
+source 'https://rails-assets.org' do
+  # Bootstrap
+  gem 'rails-assets-bootstrap', '3.3.7'
+  gem 'rails-assets-notifyjs'
+  gem 'rails-assets-bootbox'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -67,5 +70,7 @@ group :development do
   gem 'rails-erd'
 
   gem 'htmlbeautifier'
+
+  gem 'faker'
 end
 
