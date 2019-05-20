@@ -16,6 +16,7 @@
             <th>#</th>
             <th><%= @admin.model.human_attribute_name('name') %></th>            
             <th><%= @admin.model.human_attribute_name('description') %></th>
+            <th><%= @admin.model.human_attribute_name('role') %></th>            
             <th></th>
             </tr>
         </thead>
@@ -25,6 +26,7 @@
                 <td><%= admin.id %></td>
                 <td><%= admin.name %></td>                
                 <td><%= admin.email %></td>
+                <td><%= admin.role_description %></td>                
                 <td style="width: 150px">
                     <%= link_to edit_backoffice_admin_path(admin), class: "btn btn-primary btn-circle" do %>
                         <i class="fa fa-edit"></i>
