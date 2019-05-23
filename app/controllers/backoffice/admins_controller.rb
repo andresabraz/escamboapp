@@ -3,6 +3,8 @@ class Backoffice::AdminsController < BackofficeController
 
   def index
     @admin = Admin.all 
+    # Usando scope para filtrar
+    # @admin = Admin.with_full_access
   end
 
   def new
