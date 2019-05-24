@@ -2,13 +2,15 @@ class Backoffice::AdminsController < BackofficeController
   before_action :set_admin, only: [:edit, :update, :destroy]
 
   def index
-    @admin = Admin.all 
+    # @admin = Admin.all 
     # Usando scope para filtrar
     # @admin = Admin.with_full_access
+    @admin = policy_scope(Admin)
   end
 
   def new
     @admin = Admin.new
+    authorize @admin
   end
 
   def create
