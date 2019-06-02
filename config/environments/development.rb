@@ -44,11 +44,14 @@ Rails.application.configure do
   BetterErrors::Middleware.allow_ip! "0.0.0.0/0"
 
   # Devise config
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   #Foreman fix
   $stdout.sync = true
 
   # Config to allow Foreman to log console 
   config.web_console.whitelisted_ips = '10.0.2.2'
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }  
 end
